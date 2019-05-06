@@ -40,12 +40,11 @@
 			<%
 			for (int i = 0; i < list.size(); i++) {
 			%>
-			<div id="producto" class="p-2"   >
+			<div id="producto" class="p-2 w-25"   >
 
 				<img src="<%=list.get(i).getImagen()%>" style="max-width:100px"/></td>
 				<div id="info">
 					<p><%=list.get(i).getNombre()%></p>
-					<p><%=list.get(i).getId_categoria() %></p>
 				</div>
 			</div>
 			
