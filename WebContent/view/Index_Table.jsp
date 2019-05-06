@@ -11,42 +11,42 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
-<body class="container">
+<body>
 	<%
 		ArrayList<productoClass> list = (ArrayList<productoClass>) request.getAttribute("list");
-// 		ArrayList<categoriaClass> categorias = (ArrayList<productoClass>) request.getAttribute("categorias");
 	%>
+	<form  class="" style=height:670px;>
 	
-	
-	<div id="filtro" class="col-3 h-100">
-	
-<!-- 	<h2> ELIGE FILTRO</h2> -->
-	
-<!-- 		for  -->
-<!-- 			<input type="checbox"  -->
-	
-	</div>
-	
-	
-	
-	<div class="container col-9 d-flex flex-wrap">
+		<table  class="table col-6 offset-2 table-responsive h-75 ">
+			<tr>
+				<td>ID_PRODUCTO</td>
+				<td>NOMBRE</td>
+				<td>DESCRIPCION</td>
+				<td>PRECIO</td>
+				<td>CANTIDAD</td>
+				<td>IMAGEN</td>
+				<td>ID_CATEGORIA</td>
+			</tr>
 			<%
 			for (int i = 0; i < list.size(); i++) {
 			%>
-			<div id="producto" class="p-2"   >
-
-				<img src="<%=list.get(i).getImagen()%>" style="max-width:100px"/></td>
-				<div id="info">
-					<p><%=list.get(i).getNombre()%></p>
-					<p><%=list.get(i).getId_categoria() %></p>
-				</div>
-			</div>
-			
+			<tr>
+				<td><%=list.get(i).getId_producto() %></td>
+				<td><%=list.get(i).getNombre()%></td>
+				<td><%=list.get(i).getDescripcion() %></td>
+				<td><%=list.get(i).getPrecio() %></td>
+				<td><%=list.get(i).getCantidad() %></td>
+				<td><img src="<%=list.get(i).getImagen()%>" style="max-width:100px"/></td>
+				<td><%=list.get(i).getId_categoria() %></td>
+				
+				
+			</tr>
 			<%
 			}
 			%>
-	</div>
-
+		</table>
+	
+	</form>	
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

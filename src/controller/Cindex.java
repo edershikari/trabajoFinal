@@ -7,6 +7,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.productoModel;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * Servlet implementation class Cindex
  */
@@ -26,6 +33,10 @@ public class Cindex extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		productoModel producto=new productoModel();
+		
+		producto.loadData();
+		request.setAttribute("list", producto.getList());
 		
 		request.getRequestDispatcher("view/Index.jsp").forward(request, response);
 	}

@@ -1,6 +1,6 @@
 package model;
 
-public class productoClass {
+public class productoClass extends Connect {
 	
 	protected int id_producto;
 	protected String nombre;
