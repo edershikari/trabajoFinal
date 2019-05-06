@@ -14,17 +14,24 @@
 <body class="container">
 	<%
 		ArrayList<productoClass> list = (ArrayList<productoClass>) request.getAttribute("list");
-// 		ArrayList<categoriaClass> categorias = (ArrayList<productoClass>) request.getAttribute("categorias");
+		ArrayList<categoriaClass> categorias = (ArrayList<categoriaClass>) request.getAttribute("categorias");
 	%>
 	
 	
 	<div id="filtro" class="col-3 h-100">
 	
-<!-- 	<h2> ELIGE FILTRO</h2> -->
+	<h2> ELIGE FILTRO</h2>
 	
-<!-- 		for  -->
+		<%
+			for (int i = 0; i < categorias.size(); i++) {
+			%> 
+				<div><%=categorias.get(i).getNombre()%></div>
+			
 <!-- 			<input type="checbox"  -->
 	
+			<%
+			}
+			%>
 	</div>
 	
 	

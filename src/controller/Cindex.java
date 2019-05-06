@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.categoriaModel;
 import model.productoModel;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,6 +38,11 @@ public class Cindex extends HttpServlet {
 		
 		producto.loadData();
 		request.setAttribute("list", producto.getList());
+		
+		categoriaModel categoria=new categoriaModel();
+		
+		categoria.loadData();
+		request.setAttribute("categorias", producto.getList());
 		
 		request.getRequestDispatcher("view/Index.jsp").forward(request, response);
 	}
