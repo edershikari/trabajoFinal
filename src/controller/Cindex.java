@@ -42,7 +42,7 @@ public class Cindex extends HttpServlet {
 		categoriaModel categoria=new categoriaModel();
 		
 		categoria.loadData();
-		request.setAttribute("categorias", producto.getList());
+		request.setAttribute("categorias", categoria.getCategorias());
 		
 		request.getRequestDispatcher("view/Index.jsp").forward(request, response);
 	}
