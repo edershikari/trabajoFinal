@@ -34,7 +34,7 @@ public class productoModeloImp extends Conector implements productoModelo {
 			while (rs.next()) {
 				producto producto = new producto(rs.getString("nombre"));
 				producto.setId_producto(rs.getInt("id_producto"));
-				producto.setNombre(rs.getString("nombre"));
+				//producto.setNombre(rs.getString("nombre"));
 				producto.setDescripcion(rs.getString("descripcion"));
 				producto.setPrecio(rs.getDouble("precio"));
 				producto.setCantidad(rs.getInt("cantidad"));
