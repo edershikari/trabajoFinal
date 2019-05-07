@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Alimentos - Eskatza</title>
+<title>Productos</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css"/>
 </head>
@@ -15,30 +15,30 @@
 ${error}
 
 <div class="container">
-	<header>
-		<nav><a class="btn btn-primary" href="${pageContext.request.contextPath}/alimento/crear">+ Alimento</a></nav>
-	</header>
+<!-- 	<header> -->
+<%-- 		<nav><a class="btn btn-primary" href="${pageContext.request.contextPath}/alimento/crear">+ Alimento</a></nav> --%>
+<!-- 	</header> -->
 	<div class="row">
 		<div class="col">
 		<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>id</th>
+				<th>id_producto</th>
 				<th>nombre</th>
 				<th>descripcion</th>
 				<th>accion</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${alimentos}" var="alimento">
+			<c:forEach items="${productos}" var="producto">
 				<tr>
-					<td>${alimento.id}</td>
-					<td>${alimento.nombre}</td>
-					<td>${alimento.descripcion}</td>
+					<td>${producto.id_producto}</td>
+					<td>${producto.nombre}</td>
+					<td>${producto.descripcion}</td>
 					<td>
-						<a href="alimento/ver?id=${alimento.id}">Ver</a>
-						<a href="alimento/editar?id=${alimento.id}">Editar</a>
-						<a href="alimento/eliminar?id=${alimento.id}">Eliminar</a>
+						<a href="alimento/ver?id=${producto.id_producto}">Ver</a>
+						<a href="alimento/editar?id=${producto.id_producto}">Editar</a>
+						<a href="alimento/eliminar?id=${producto.id_producto}">Eliminar</a>
 					</td>
 				</tr>
 			</c:forEach>

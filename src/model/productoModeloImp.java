@@ -1,4 +1,5 @@
 package model;
+import model.*;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,7 +12,8 @@ import javax.websocket.Decoder.BinaryStream;
 import model.Connect;
 import model.producto;
 import model.productoModelo;
-public class productoModeloImp extends Connect implements productoModelo {
+
+public class productoModeloImp extends Conector implements productoModelo {
 
 
 	public productoModeloImp() {
@@ -27,11 +29,12 @@ public class productoModeloImp extends Connect implements productoModelo {
 		ArrayList<producto> productos = new ArrayList<producto>();
 
 		try {
-			Statement st = super.con.createStatement();
+			Statement st = super.conexion.createStatement();
 			ResultSet rs = st.executeQuery("select * from producto");
 			while (rs.next()) {
 				producto producto = new producto(rs.getString("nombre"));
 				producto.setId_producto(rs.getInt("id_producto"));
+				producto.setNombre(rs.getString("nombre"));
 				producto.setDescripcion(rs.getString("descripcion"));
 				producto.setPrecio(rs.getDouble("precio"));
 				producto.setCantidad(rs.getInt("cantidad"));

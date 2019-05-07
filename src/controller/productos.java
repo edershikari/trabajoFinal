@@ -7,10 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import eus.kozina.model.daoimpl.AlimentoModeloImp;
-import model.categoriaModel;
-import model.productoModel;
-import model.productoModeloImp;
+import model.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,17 +34,17 @@ public class productos extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		productoModel producto=new productoModel();
-		
-		producto.loadData();
-		request.setAttribute("list", producto.getList());
-		
-		categoriaModel categoria=new categoriaModel();
-		
-		categoria.loadData();
-		request.setAttribute("categorias", categoria.getCategorias());
-		
-		request.getRequestDispatcher("view/Index.jsp").forward(request, response);
+//		productoModel producto=new productoModel();
+//		
+//		producto.loadData();
+//		request.setAttribute("list", producto.getList());
+//		
+//		categoriaModel categoria=new categoriaModel();
+//		
+//		categoria.loadData();
+//		request.setAttribute("categorias", categoria.getCategorias());
+//		
+//		request.getRequestDispatcher("view/Index.jsp").forward(request, response);
 		//esto es el intento
 		String error = request.getParameter("error");
 		if(error != null) {
@@ -57,7 +54,7 @@ public class productos extends HttpServlet {
 		
 		productoModeloImp productoModelo =new productoModeloImp();
 		request.setAttribute("productos", productoModelo.selectAll());
-		request.getRequestDispatcher("alimento/verTodos.jsp").forward(request, response);
+		request.getRequestDispatcher("view/verTodos.jsp").forward(request, response);
 	}
 
 	/**
