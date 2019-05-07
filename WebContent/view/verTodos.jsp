@@ -23,23 +23,19 @@ ${error}
 		<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>id_producto</th>
-				<th>nombre</th>
+				
+				<th>imagen</th>
 				<th>descripcion</th>
-				<th>accion</th>
+				<th>nombre</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${productos}" var="producto">
 				<tr>
-					<td>${producto.id_producto}</td>
+					<td><img style="max-width:100px" src="${producto.imagen}"></td>
 					<td>${producto.nombre}</td>
 					<td>${producto.descripcion}</td>
-					<td>
-						<a href="alimento/ver?id=${producto.id_producto}">Ver</a>
-						<a href="alimento/editar?id=${producto.id_producto}">Editar</a>
-						<a href="alimento/eliminar?id=${producto.id_producto}">Eliminar</a>
-					</td>
+					
 				</tr>
 			</c:forEach>
 		</tbody>
