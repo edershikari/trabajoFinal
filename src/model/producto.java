@@ -67,7 +67,7 @@ public class Producto {
 	public Producto() {
 		super();
 	}
-	public Producto(String string) {
+	public Producto(String nombre) {
 		super();
 		this.nombre = nombre;
 	}

@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
+<div class="h-25 w-100"> <img src=" " >banner</div>
 <body class="container">
 	<%
 		ArrayList<productoClass> list = (ArrayList<productoClass>) request.getAttribute("list");
@@ -20,12 +21,13 @@
 	
 	<div id="filtro" class="col-3 h-100">
 	
-	<h2> ELIGE FILTRO</h2>
+	<h2> ELIGE FILTRO </h2>
 	
-		<%
+			<%
 			for (int i = 0; i < categorias.size(); i++) {
 			%> 
 				<div><%=categorias.get(i).getNombre()%></div>
+				
 			
 <!-- 			<input type="checbox"  -->
 	
@@ -45,6 +47,7 @@
 				<img src="<%=list.get(i).getImagen()%>" style="max-width:100px"/></td>
 				<div id="info">
 					<p><%=list.get(i).getNombre()%></p>
+					<p><%=list.get(i).getPrecio()%>€</p>
 				</div>
 			</div>
 			
