@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.CategoriaModel;
-import model.ProductoModel;
+import model.*;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,14 +18,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Cindex
  */
-@WebServlet("/Cindex")
-public class Cindex extends HttpServlet {
+@WebServlet("/categorias")
+public class Categorias extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Cindex() {
+    public Categorias() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,17 +34,27 @@ public class Cindex extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ProductoModel producto=new ProductoModel();
+//		productoModel producto=new productoModel();
+//		
+//		producto.loadData();
+//		request.setAttribute("list", producto.getList());
+//		
+//		categoriaModel categoria=new categoriaModel();
+//		
+//		categoria.loadData();
+//		request.setAttribute("categorias", categoria.getCategorias());
+//		
+//		request.getRequestDispatcher("view/Index.jsp").forward(request, response);
+		//esto es el intento
+		String error = request.getParameter("error");
+		if(error != null) {
+			request.setAttribute("error", error);
+		}
 		
-		producto.loadData();
-		request.setAttribute("list", producto.getList());
 		
-		CategoriaModel categoria=new CategoriaModel();
-		
-		categoria.loadData();
-		request.setAttribute("categorias", categoria.getCategorias());
-		
-		request.getRequestDispatcher("view/Index.jsp").forward(request, response);
+		CategoriaModeloImp categoriaModelo =new CategoriaModeloImp();
+		request.setAttribute("categorias", categoriaModelo.selectAll());
+		request.getRequestDispatcher("view/verTodos.jsp").forward(request, response);
 	}
 
 	/**

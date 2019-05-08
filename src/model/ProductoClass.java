@@ -1,7 +1,7 @@
 package model;
 
-public class producto {
-
+public class ProductoClass extends Connect {
+	
 	protected int id_producto;
 	protected String nombre;
 	protected String descripcion;
@@ -53,7 +53,7 @@ public class producto {
 		this.id_categoria = id_categoria;
 	}
 	
-	public producto(int id_producto, String nombre, String descripcion, double precio, int cantidad, String imagen,
+	public ProductoClass(int id_producto, String nombre, String descripcion, double precio, int cantidad, String imagen,
 			int id_categoria) {
 		super();
 		this.id_producto = id_producto;
@@ -64,12 +64,8 @@ public class producto {
 		this.imagen = imagen;
 		this.id_categoria = id_categoria;
 	}
-	public producto() {
+	public ProductoClass() {
 		super();
-	}
-	public producto(String string) {
-		super();
-		this.nombre = nombre;
 	}
 	
 	

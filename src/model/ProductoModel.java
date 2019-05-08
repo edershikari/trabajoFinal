@@ -5,30 +5,30 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 
-public class productoModel extends productoClass {
-	private ArrayList<productoClass> list = new ArrayList<productoClass>();
+public class ProductoModel extends ProductoClass {
+	private ArrayList<ProductoClass> list = new ArrayList<ProductoClass>();
 	
 	
 
-	public productoModel() {
+	public ProductoModel() {
 		super();
 	}
 
 	
 
-	public productoModel(int id_producto, String nombre, String descripcion, double precio, int cantidad, String imagen,
-			int id_categoria, ArrayList<productoClass> list) {
+	public ProductoModel(int id_producto, String nombre, String descripcion, double precio, int cantidad, String imagen,
+			int id_categoria, ArrayList<ProductoClass> list) {
 		super(id_producto, nombre, descripcion, precio, cantidad, imagen, id_categoria);
 		this.list = list;
 	}
 
 
 
-	public ArrayList<productoClass> getList() {
+	public ArrayList<ProductoClass> getList() {
 		return list;
 	}
 
-	public void setList(ArrayList<productoClass> list) {
+	public void setList(ArrayList<ProductoClass> list) {
 		this.list = list;
 	}
 
@@ -43,7 +43,7 @@ public class productoModel extends productoClass {
 
 			while (rs.next()) // reads the table line by line
 			{
-				productoModel producto = new productoModel();
+				ProductoModel producto = new ProductoModel();
 				producto.id_producto=Integer.parseInt(rs.getString(1));
 				producto.nombre=rs.getString(2);
 				producto.descripcion=rs.getString(3);

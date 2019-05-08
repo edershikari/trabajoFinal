@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONStringer;
 
-import model.producto;
-import model.productoModeloImp;
+import model.Producto;
+import model.ProductoModeloImp;
 
 /**
  * Servlet implementation class ApiAlimentos
@@ -35,8 +35,8 @@ public class ApiProductos extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		productoModeloImp productoModelo =new productoModeloImp();
-		ArrayList<producto> productos = productoModelo.selectAll();
+		ProductoModeloImp productoModelo =new ProductoModeloImp();
+		ArrayList<Producto> productos = productoModelo.selectAll();
 		
 		String jsonString = JSONStringer.valueToString(productos);
 		

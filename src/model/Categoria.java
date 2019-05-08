@@ -1,6 +1,6 @@
 package model;
 
-public class categoriaClass extends Connect{
+public class Categoria {
 
 	protected int id_categoria;
 	protected String nombre;
@@ -16,16 +16,18 @@ public class categoriaClass extends Connect{
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public categoriaClass(int id_categoria, String nombre) {
+	public Categoria(int id_categoria, String nombre) {
 		super();
 		this.id_categoria = id_categoria;
 		this.nombre = nombre;
 	}
-	public categoriaClass() {
+	public Categoria() {
 		super();
 	}
-	
-	
+	public Categoria(String string) {
+		super();
+		this.nombre=nombre;
+	}
 	
 	
 }

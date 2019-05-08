@@ -1,31 +1,30 @@
-package controller;
+package controller.api;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.CategoriaModel;
-import model.ProductoModel;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import org.json.JSONStringer;
 
+import model.Categoria;
+import model.CategoriaModeloImp;
 /**
- * Servlet implementation class Cindex
+ * Servlet implementation class ApiCategorias
  */
-@WebServlet("/Cindex")
-public class Cindex extends HttpServlet {
+@WebServlet("/ApiCategorias")
+public class ApiCategorias extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Cindex() {
+    public ApiCategorias() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,17 +33,21 @@ public class Cindex extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ProductoModel producto=new ProductoModel();
+		// TODO Auto-generated method stub
 		
-		producto.loadData();
-		request.setAttribute("list", producto.getList());
+		CategoriaModeloImp categoriaModelo =new CategoriaModeloImp();
+		ArrayList<Categoria> categorias = categoriaModelo.selectAll();
 		
-		CategoriaModel categoria=new CategoriaModel();
+		String jsonString = JSONStringer.valueToString(categorias);
 		
-		categoria.loadData();
-		request.setAttribute("categorias", categoria.getCategorias());
+		PrintWriter out = response.getWriter();
 		
-		request.getRequestDispatcher("view/Index.jsp").forward(request, response);
+		response.setHeader("Access-Control-Allow-Origin","*"); //jsonp deia denean ez da behar
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		
+		out.print(jsonString);
+		out.flush();
 	}
 
 	/**

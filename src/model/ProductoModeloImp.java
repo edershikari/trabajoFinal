@@ -10,13 +10,13 @@ import java.util.ArrayList;
 import javax.websocket.Decoder.BinaryStream;
 
 import model.Connect;
-import model.producto;
-import model.productoModelo;
+import model.Producto;
+import model.ProductoModelo;
 
-public class productoModeloImp extends Conector implements productoModelo {
+public class ProductoModeloImp extends Conector implements ProductoModelo {
 
 
-	public productoModeloImp() {
+	public ProductoModeloImp() {
 		super();
 	}
 
@@ -24,15 +24,15 @@ public class productoModeloImp extends Conector implements productoModelo {
 	 * selecciona todos los alimentos y devuelve un arrayList de alimentos
 	 */
 	@Override
-	public ArrayList<producto> selectAll() {
+	public ArrayList<Producto> selectAll() {
 
-		ArrayList<producto> productos = new ArrayList<producto>();
+		ArrayList<Producto> productos = new ArrayList<Producto>();
 
 		try {
 			Statement st = super.conexion.createStatement();
 			ResultSet rs = st.executeQuery("select * from producto");
 			while (rs.next()) {
-				producto producto = new producto(rs.getString("nombre"));
+				Producto producto = new Producto(rs.getString("nombre"));
 				producto.setId_producto(rs.getInt("id_producto"));
 				producto.setNombre(rs.getString("nombre"));
 				producto.setDescripcion(rs.getString("descripcion"));
@@ -55,7 +55,7 @@ public class productoModeloImp extends Conector implements productoModelo {
 	}
 
 	@Override
-	public producto select(int id) {
+	public Producto select(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -67,13 +67,13 @@ public class productoModeloImp extends Conector implements productoModelo {
 	}
 
 	@Override
-	public int update(producto producto) {
+	public int update(Producto producto) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public void insert(producto producto) {
+	public void insert(Producto producto) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -19,13 +19,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class Cindex
  */
 @WebServlet("/productos")
-public class productos extends HttpServlet {
+public class Productos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public productos() {
+    public Productos() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -52,7 +52,7 @@ public class productos extends HttpServlet {
 		}
 		
 		
-		productoModeloImp productoModelo =new productoModeloImp();
+		ProductoModeloImp productoModelo =new ProductoModeloImp();
 		request.setAttribute("productos", productoModelo.selectAll());
 		request.getRequestDispatcher("view/verTodos.jsp").forward(request, response);
 	}
