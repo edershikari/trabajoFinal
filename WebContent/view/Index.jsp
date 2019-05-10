@@ -14,8 +14,8 @@
 <div class="h-25 w-100"> <img src=" " >banner</div>
 <body class="container">
 	<%
-		ArrayList<productoClass> list = (ArrayList<productoClass>) request.getAttribute("list");
-		ArrayList<categoriaClass> categorias = (ArrayList<categoriaClass>) request.getAttribute("categorias");
+		ArrayList<ProductoClass> list = (ArrayList<ProductoClass>) request.getAttribute("list");
+		ArrayList<CategoriaClass> categorias = (ArrayList<CategoriaClass>) request.getAttribute("categorias");
 	%>
 	
 	
@@ -44,7 +44,7 @@
 			%>
 			<div id="producto" class="p-2 w-25"   >
 
-				<img src="<%=list.get(i).getImagen()%>" style="max-width:100px"/></td>
+				<img src="<%=list.get(i).getImagen()%>" style="max-width:100px"/>
 				<div id="info">
 					<p><%=list.get(i).getNombre()%></p>
 					<p><%=list.get(i).getPrecio()%>€</p>
