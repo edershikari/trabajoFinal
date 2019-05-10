@@ -17,7 +17,7 @@ import model.CategoriaModeloImp;
 /**
  * Servlet implementation class ApiCategorias
  */
-@WebServlet("/ApiCategorias")
+@WebServlet("/api/categorias")
 public class ApiCategorias extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

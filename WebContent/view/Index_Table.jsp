@@ -13,7 +13,7 @@
 </head>
 <body>
 	<%
-		ArrayList<productoClass> list = (ArrayList<productoClass>) request.getAttribute("list");
+		ArrayList<ProductoClass> list = (ArrayList<ProductoClass>) request.getAttribute("list");
 	%>
 	<form  class="" style=height:670px;>
 	
