@@ -78,6 +78,40 @@ public class ProductoModeloImp extends Conector implements ProductoModelo {
 		
 	}
 
+	public ArrayList<Producto> selectFiltrado(int id_categoria) {
+		
+		ArrayList<Producto> productos = new ArrayList<Producto>();
+		
+		try {
+			PreparedStatement pst = this.conexion.prepareStatement("select * from producto where id_categoria=?");
+			pst.setInt(1, id_categoria);
+			System.out.println(pst);
+			
+			ResultSet rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				Producto producto = new Producto(rs.getString("nombre"));
+				producto.setId_producto(rs.getInt("id_producto"));
+				//producto.setNombre(rs.getString("nombre"));
+				producto.setDescripcion(rs.getString("descripcion"));
+				producto.setPrecio(rs.getDouble("precio"));
+				producto.setCantidad(rs.getInt("cantidad"));
+				producto.setImagen(rs.getString("imagen"));
+				producto.setId_categoria(rs.getInt("id_categoria"));
+
+				//				producto.setImagenBlob(rs.getBinaryStream("foto"));
+				//				producto.setImagenBase64(rs.getString("fotob64"));
+
+				productos.add(producto);	
+			}
+			return productos;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+
 	/**
 	 * devuelve el alimento que tiene la id recibida
 	 */

@@ -12,19 +12,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONStringer;
 
-import model.Categoria;
-import model.CategoriaModeloImp;
+import model.Producto;
+import model.ProductoModeloImp;
 /**
  * Servlet implementation class ApiCategorias
  */
-@WebServlet("/api/categorias")
-public class ApiCategorias extends HttpServlet {
+@WebServlet("/api/categoriasFiltrado")
+public class ApiCategoriasFiltrado extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ApiCategorias() {
+    public ApiCategoriasFiltrado() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,10 +35,16 @@ public class ApiCategorias extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		CategoriaModeloImp categoriaModelo =new CategoriaModeloImp();
-		ArrayList<Categoria> categorias = categoriaModelo.selectAll();
+		int id_categoria=Integer.parseInt(request.getParameter("id_categoria"));
 		
-		String jsonString = JSONStringer.valueToString(categorias);
+		ProductoModeloImp productoModelo =new ProductoModeloImp();
+		
+		System.out.println("CATEGORIA : "+id_categoria);
+		
+		ArrayList<Producto> productos = productoModelo.selectFiltrado(id_categoria);
+		
+		String jsonString = JSONStringer.valueToString(productos);
+		System.out.println("LISTA : "+jsonString);
 		
 		PrintWriter out = response.getWriter();
 		
