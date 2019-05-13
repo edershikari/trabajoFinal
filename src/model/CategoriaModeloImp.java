@@ -71,6 +71,8 @@ public class CategoriaModeloImp extends Conector implements CategoriaModelo {
 		
 	}
 
+	
+
 	/**
 	 * devuelve el alimento que tiene la id recibida
 	 */
