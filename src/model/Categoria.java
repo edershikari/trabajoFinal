@@ -4,6 +4,7 @@ public class Categoria {
 
 	protected int id_categoria;
 	protected String nombre;
+	
 	public int getId_categoria() {
 		return id_categoria;
 	}
