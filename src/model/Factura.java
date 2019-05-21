@@ -1,5 +1,7 @@
 package model;
 
+import java.sql.Date;
+
 public class Factura extends Connect{
 	protected int id_factura;
 	protected String nombre;
@@ -8,6 +10,7 @@ public class Factura extends Connect{
 	protected String correo;
 	protected String telefono;
 	protected String num_tarjeta;
+	protected Date fecha;
 	protected double total_factura;
 	
 	
@@ -18,7 +21,7 @@ public class Factura extends Connect{
 
 	
 	public Factura(int id_factura, String nombre, String apellido, String dni, String correo, String telefono,
-			String num_tarjeta, double total_factura) {
+			String num_tarjeta,Date fecha, double total_factura) {
 		super();
 		this.id_factura = id_factura;
 		this.nombre = nombre;
@@ -27,6 +30,7 @@ public class Factura extends Connect{
 		this.correo = correo;
 		this.telefono = telefono;
 		this.num_tarjeta = num_tarjeta;
+		this.fecha = fecha;
 		this.total_factura = total_factura;
 	}
 
@@ -72,6 +76,12 @@ public class Factura extends Connect{
 	}
 	public void setNum_tarjeta(String num_tarjeta) {
 		this.num_tarjeta = num_tarjeta;
+	}
+	public Date getFecha() {
+		return fecha;
+	}
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
 	}
 	public double getTotal_factura() {
 		return total_factura;

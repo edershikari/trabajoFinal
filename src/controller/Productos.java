@@ -34,18 +34,7 @@ public class Productos extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		productoModel producto=new productoModel();
-//		
-//		producto.loadData();
-//		request.setAttribute("list", producto.getList());
-//		
-//		categoriaModel categoria=new categoriaModel();
-//		
-//		categoria.loadData();
-//		request.setAttribute("categorias", categoria.getCategorias());
-//		
-//		request.getRequestDispatcher("view/Index.jsp").forward(request, response);
-		//esto es el intento
+		
 		String error = request.getParameter("error");
 		if(error != null) {
 			request.setAttribute("error", error);

@@ -1,36 +1,46 @@
 package model;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+
+
 
 public class FacturaModelo extends Factura {
-	public void insertarLinea() {
+	
+	public int insertarFactura() {//estamos trayendo todos los datos desde el form y el localstorage. Todo desde factura.js
 
-		Statement st;
+		int id=0;
+		this.CreateConnection();
+		
+		
+		PreparedStatement pst;//pst es porque lleva interrogaciones
 		try {
-			st = this.con.createStatement();// the connection variable
-			ResultSet rs = st.executeQuery("INSERT INTO factura");
+			pst = this.con.prepareStatement("call spInsertarFactura( ?,?,?,?,?,?,?)");
 			
-			while (rs.next()) { // reads the table line by line
-				Factura factura = new Factura();
-				
-				factura.id_factura=rs.getInt(1);
-				factura.nombre=rs.getString(2);
-				factura.apellido=rs.getString(3);
-				factura.dni=rs.getString(4);
-				factura.correo=rs.getString(5);
-				factura.telefono=rs.getString(6);
-				factura.num_tarjeta=rs.getString(7);
-				factura.total_factura=rs.getDouble(8);
-				
-				this.list.add(socio);
+			pst.setString(1, this.nombre);
+			pst.setString(2, this.apellido);
+			pst.setString(3, this.dni);
+			pst.setString(4, this.correo);
+			pst.setString(5, this.telefono);
+			pst.setString(6, this.num_tarjeta);
+			pst.setDouble(7, this.total_factura);
+			
+			ResultSet rs = pst.executeQuery();
+			
+			if (rs.next()) {
+				id=rs.getInt(1);
 			}
 			this.con.close();
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
+		return id;
 	}
+
 
 }
